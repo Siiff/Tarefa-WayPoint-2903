@@ -675,9 +675,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4ae35b24a78fd4bb4e551e1071ec0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 50
   accuracy: 1
-  rotspeed: 5
+  rotspeed: 20
   wpManager: {fileID: 785084900}
 --- !u!1 &785084900
 GameObject:
