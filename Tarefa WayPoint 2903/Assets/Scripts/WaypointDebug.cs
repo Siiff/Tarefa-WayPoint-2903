@@ -5,6 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class WaypointDebug : MonoBehaviour {
 
+	//Metodo para renomear WP's//
 	void RenameWPs(GameObject overlook)
 	{
 		GameObject[] gos;
@@ -25,13 +26,13 @@ public class WaypointDebug : MonoBehaviour {
 		RenameWPs(this.gameObject);
 	}
 
-	// Use this for initialization
+	//Se o nome do objeto não for WayPoint, renomeia WP//
 	void Start () {
 		if(this.transform.parent.gameObject.name != "WayPoint") return;
 		RenameWPs(null);
 	}
 	
-	// Update is called once per frame
+	//Pegando o componente de texto para exibir o nome do objeto//
 	void Update () {
 		this.GetComponent<TextMesh>().text = this.transform.parent.gameObject.name;
 	}
