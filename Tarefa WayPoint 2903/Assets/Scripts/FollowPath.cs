@@ -7,7 +7,7 @@ public class FollowPath : MonoBehaviour
     //Variaveis//
     Transform goal;
     [Header ("Variaveis")]
-    public float speed = 5.0f, accuracy = 1.0f, rotspeed = 5.0f;
+    public float speed = 10.0f, accuracy = 1.0f, rotspeed = 2.0f;
 
     public GameObject wpManager;
     GameObject[] wps;
@@ -31,10 +31,15 @@ public class FollowPath : MonoBehaviour
     }
     public void GoToRuin() 
     { 
-        g.AStar(currentNode, wps[4]); currentWP = 0; 
+        g.AStar(currentNode, wps[10]); currentWP = 0; 
     
     }
-    
+    public void GoToRock()
+    {
+        g.AStar(currentNode, wps[1]); currentWP = 0;
+
+    }
+
 
     private void LateUpdate()
     {
@@ -49,7 +54,7 @@ public class FollowPath : MonoBehaviour
         currentNode = g.getPathPoint(currentWP);
 
         //Se tiver proximo o suficiente, move para ele
-        if(Vector3.Distance(g.getPathPoint(currentWP).transform.position, transform.position)>accuracy)
+        if(Vector3.Distance(g.getPathPoint(currentWP).transform.position, transform.position)<accuracy)
         {
             Debug.LogWarning("ta indo if2");
             currentWP++;
@@ -61,7 +66,8 @@ public class FollowPath : MonoBehaviour
             Vector3 lookAtGoal = new Vector3(goal.position.x,this.transform.position.y, goal.position.z);
             Vector3 direction = lookAtGoal - this.transform.position;
 
-            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction),Time.deltaTime *rotspeed);
+            //Parafernalha da rotação
+            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Quaternion.LookRotation(direction),Time.deltaTime * rotspeed);
 
             
         }
