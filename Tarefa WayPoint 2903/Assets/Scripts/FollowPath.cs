@@ -5,45 +5,51 @@ using UnityEngine;
 public class FollowPath : MonoBehaviour
 {
     //Variaveis//
-    Transform goal;
+    /*Transform goal;
     [Header ("Variaveis")]
-    public float speed = 10.0f, accuracy = 1.0f, rotspeed = 2.0f;
+    public float speed = 10.0f, accuracy = 1.0f, rotspeed = 2.0f;*/
 
     public GameObject wpManager;
     GameObject[] wps;
-    GameObject currentNode;
+    UnityEngine.AI.NavMeshAgent agent;
+
+    /*GameObject currentNode;
     int currentWP = 0;
-    Graph g;
+    Graph g;*/
 
     private void Start()
     {
         //Pegando os componentes e setando wps pra 0
         wps = wpManager.GetComponent<WPManager>().waypoints;
-        g = wpManager.GetComponent<WPManager>().graph;
-        currentNode = wps[0];
+        agent = this.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        /*g = wpManager.GetComponent<WPManager>().graph;
+        currentNode = wps[0];*/
     }
 
     //Pontos de WPS importantes
     public void GoToHeli() 
-    { 
-        g.AStar(currentNode, wps[0]); currentWP = 0; 
+    {
+        agent.SetDestination(wps[0].transform.position);
+        /*g.AStar(currentNode, wps[0]); currentWP = 0;*/ 
     
     }
     public void GoToRuin() 
-    { 
-        g.AStar(currentNode, wps[10]); currentWP = 0; 
-    
+    {
+        agent.SetDestination(wps[10].transform.position);
+        /*g.AStar(currentNode, wps[10]); currentWP = 0;*/
+
     }
     public void GoToRock()
     {
-        g.AStar(currentNode, wps[1]); currentWP = 0;
+        agent.SetDestination(wps[1].transform.position);
+        /*g.AStar(currentNode, wps[1]); currentWP = 0;*/
 
     }
 
 
     private void LateUpdate()
     {
-        //Se a distancia do proximo wp for igual a ACC, retorna//
+        /*//Se a distancia do proximo wp for igual a ACC, retorna//
         if (g.getPathLength() == 0 || currentWP == g.getPathLength())
         {
             Debug.LogWarning("AAAAAAAAAAAAAAAAAA");
@@ -73,7 +79,7 @@ public class FollowPath : MonoBehaviour
         }
             //aplicando no translate desse objeto a velocidade vezes deltaTime
             this.transform.Translate(0, 0 , speed * Time.deltaTime);
-            
+            */
     }
 
 }

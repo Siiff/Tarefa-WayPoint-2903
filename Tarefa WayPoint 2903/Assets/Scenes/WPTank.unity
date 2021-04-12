@@ -676,9 +676,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a4ae35b24a78fd4bb4e551e1071ec0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  accuracy: 1
-  rotspeed: 5
   wpManager: {fileID: 785084900}
 --- !u!195 &709638391
 NavMeshAgent:
@@ -702,6 +699,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &709638392
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709638389}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.510183, y: 1.89889, z: 2.8525298}
+  m_Center: {x: 0.045914054, y: 0.93302095, z: -0.2193527}
 --- !u!1 &785084900
 GameObject:
   m_ObjectHideFlags: 0
